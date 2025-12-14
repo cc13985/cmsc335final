@@ -77,8 +77,12 @@ textarea {
   resize: none;
 }
 
-::placeholder {
+::placeholder,
+input,
+select,
+textarea {
   font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
 }
 
 .radio-group {
