@@ -1,0 +1,143 @@
+body {
+  background-color: #f9f5f0;
+  color: #333;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #5d4037;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #5d4037;
+  font-size: 24px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.coffee-image {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.coffee-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #5d4037;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+textarea {
+  resize: none;
+}
+
+::placeholder {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.radio-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 5px;
+}
+
+.radio-group label {
+  font-weight: normal;
+}
+
+button {
+  background-color: #5d4037;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #4e342e;
+}
+
+
+.clear-button {
+  background-color: #c62828;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+.clear-button:hover {
+  background-color: #b71c1c;
+}
+
+.order-list {
+  list-style: none;
+  padding: 0;
+}
+
+.order-list li {
+  padding: 12px 15px;
+  background-color: #f5f0e8;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.timestamp {
+  font-size: 14px;
+  color: #777;
+  font-style: italic;
+}
+
+.error {
+  color: #c62828;
+  font-size: 18px;
+  text-align: center;
+  margin: 15px 0;
+}

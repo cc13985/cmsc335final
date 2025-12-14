@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Coffee Shop</title>
+        <link rel="stylesheet" href="/css/style.css" />
+        <linkhref="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
+    </head>
+    <body>
+        <h1>Coder Coffee Shop</h1>
+        <div class="container">
+            <!-- Random coffee image from API call -->
+            <% if (coffeeImageUrl) { %>
+                <div class="coffee-image">
+                    <img src="<%= coffeeImageUrl %>" alt="Random coffee" class="coffee-img"/>
+                </div>
+            <% } else if (error) { %>
+                <p class="error"><%= error %></p>
+            <% } %>
+
+            <!-- Coffee order form -->
+            <h2>Place an Order</h2>
+            <form action="/order" method="POST">
+
+                <!-- Name, Drink, Size, Milk, Sugar, Price, Notes -->
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" name="name" id="name" placeholder="Clara Coffee" required/>
+                </div>
+
+                <div class="form-group">
+                    <label for="drink">Drink:</label>
+                    <select name="drink" id="drink" required>
+                        <option value="Latte">Latte</option>
+                        <option value="Cappuccino">Cappuccino</option>
+                        <option value="Espresso">Espresso</option>
+                        <option value="Americano">Americano</option>
+                        <option value="Mocha">Mocha</option>
+                        <option value="Flat White">Flat White</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="size">Size:</label>
+                    <div class="radio-group">
+                        <input type="radio" name="size" value="Small" id="size-small" required>
+                        <label for="size-small">Small</label>
+
+                        <input type="radio" name="size" value="Medium" id="size-medium">
+                        <label for="size-medium">Medium</label>
+
+                        <input type="radio" name="size" value="Large" id="size-large">
+                        <label for="size-large">Large</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="milk">Milk:</label>
+                    <select name="milk" id="milk" required>
+                    <option value="Whole">Whole</option>
+                    <option value="Skim">Skim</option>
+                    <option value="Soy">Soy</option>
+                    <option value="Almond">Almond</option>
+                    <option value="Oat">Oat</option>
+                    <option value="2%">2%</option>
+                    <option value="Low-fat">Low-fat</option>
+                    <option value="None">Soy</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="sugarPercentage">Sugar (%):</label>
+                    <input type="number" name="sugarPercentage" id="sugarPercentage" min="0" max="100" step="25" value="25" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="price">Price ($):</label>
+                    <input type="number" name="price" id="price" min="0" step="0.50" value="3.00" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Notes:</label>
+                    <textarea name="notes" id="notes" rows="3" placeholder="Any additional notes here"></textarea>
+                </div>
+
+                <button type="submit">Place Order</button>
+            </form>
+
+            <!-- Clear orders button -->
+            <form action="/clear-orders" method="POST" onsubmit="return confirm('Are you sure you want to clear all orders?');">
+                    <button class="clear-button">Clear All Orders</button>
+            </form>
+
+            <!-- Recent orders list -->
+            <h2>Recent Orders</h2>
+            <% if (recentOrders.length > 0) { %>
+                <ul class="order-list">
+                    <% recentOrders.forEach(order => { %>
+                        <li>
+                            <strong><%= order.name %></strong> –
+                            <%= order.drink %> (<%= order.size %>, <%= order.milk %>)
+                            <% if (order.sugarPercentage > 0) { %>
+                                – <%= order.sugarPercentage %>% sugar
+                            <% } %>
+                            – $<%= order.price.toFixed(2) %>
+                            <% if (order.notes) { %>
+                                – <%= order.notes %>
+                            <% } %>
+                            <span class="timestamp">(<%= order.orderTime.toLocaleString() %>)</span>
+                        </li>
+                    <% }); %>
+                </ul>
+            <% } else { %>
+                <p>No recent orders yet.</p>
+            <% } %>
+        </div>
+    </body>
+</html>
