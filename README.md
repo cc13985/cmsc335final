@@ -9,6 +9,6 @@
 
 **APIs:** Coffee Image API (https://coffee.alexflipnote.dev/)
 
-**Contact Email:** cchen145@terpmail.umd.edu, TODO
+**Contact Email:** cchen145@terpmail.umd.edu
 
 **Deployed App Link:** https://cmsc335final-l9bx.onrender.com/
